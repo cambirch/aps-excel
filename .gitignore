@@ -1,0 +1,4 @@
+cat > .gitignore <<DELIM
+/node_modules
+!.travis.yml
+!.gitignore
