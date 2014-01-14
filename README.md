@@ -27,13 +27,18 @@ Using this module requires a few simple steps in order to install it as a natura
 
 ## Using ##
 
-> var excel = require('aps-excel').Excel;
-> 
-> var workbook = excel.load('filename');
-> 
-> var sheet = workbook.getSheetAt(0);
-> 
-> console.log(sheet.getCellValue(0, 0);
+> `var excel = require('aps-excel').Excel;`
+> `var workbook = excel.load('filename');`
+> `var sheet = workbook.getSheetAt(0);`
+> `console.log(sheet.getCellValue(0, 0);`
 
+## API ##
+API description provided in Typescript syntax for ease.
 
-
+> `Excel`
+> `.load(path: string): Workbook`
+> `Workbook`
+> `		.save()`
+> `		.getSheetAt()`
+> `		.getSheet()`
+> 
