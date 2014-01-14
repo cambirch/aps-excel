@@ -105,7 +105,7 @@ module aps {
             return functions({ fn: 'row-getCellExists', row: this.row, cell: cell }, true);
         }
 
-        public isExists(): bool {
+        public isExists(): boolean {
             return !!this.row;
         }
 
@@ -127,7 +127,7 @@ module aps {
         constructor(private row: any, private cell: any, private index: number) {
         }
 
-        public isExists(): bool {
+        public isExists(): boolean {
             return !!this.cell;
         }
 
