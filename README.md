@@ -110,8 +110,9 @@ API description provided in Typescript syntax for ease.
          */
         getCellValue(row: number, column: number): any
         /**
-         * A shortcut function for setting the value of a cell.  Will create column as needed.
-         * Row must exist first however
+         * setCellValue is a js wrapper we wrote for the excel access.
+         * A shortcut function for setting the value of a cell.  
+         * It will create a row and column as needed.
          */
         setCellValue(row: number, column: number, value: any): void
 
@@ -152,7 +153,8 @@ API description provided in Typescript syntax for ease.
         **/
         getValue(): any
         /**
-        * 
+        * The cell must exist before you setValue (Unlike the Sheet.setCellValue which will
+        * create the cell if it doesn't exist.)
         **/
         setValue(value: any): void
         /**
