@@ -47,7 +47,10 @@ var aps;
         *     Sheet.createRow(####)
         */
         Sheet.prototype.getRow = function (row) {
-            var rowData = functions({ fn: 'sheet-getRow', sheet: this.sheet, row: row }, true);
+            if (row === 0)
+                throw new Error('row 0 is not valid');
+
+            var rowData = functions({ fn: 'sheet-getRow', sheet: this.sheet, row: row - 1 }, true);
             if (rowData == null)
                 return null;
             return new Row(this.sheet, rowData, row);
@@ -61,7 +64,10 @@ var aps;
         * it will let you know whether that row exists.
         */
         Sheet.prototype.getRowExists = function (row) {
-            return functions({ fn: 'sheet-getRowExists', sheet: this.sheet, row: row }, true);
+            if (row === 0)
+                throw new Error('row 0 is not valid');
+
+            return functions({ fn: 'sheet-getRowExists', sheet: this.sheet, row: row - 1 }, true);
         };
 
         /**
@@ -95,7 +101,12 @@ var aps;
         * repeat until all rows added.
         */
         Sheet.prototype.cloneRow = function (source, destination) {
-            var rowData = functions({ fn: 'sheet-cloneRow', sheet: this.sheet, sourceRow: source, destRow: destination }, true);
+            if (source === 0)
+                throw new Error('row 0 is not valid');
+            if (destination === 0)
+                throw new Error('row 0 is not valid');
+
+            var rowData = functions({ fn: 'sheet-cloneRow', sheet: this.sheet, sourceRow: source - 1, destRow: destination - 1 }, true);
             return new Row(this.sheet, rowData, destination);
         };
 
@@ -124,7 +135,10 @@ var aps;
         * createRow() lets you create a row that you can then edit cells on on this sheet.
         */
         Sheet.prototype.createRow = function (row) {
-            var rowData = functions({ fn: 'sheet-createRow', sheet: this.sheet, row: row }, true);
+            if (row === 0)
+                throw new Error('row 0 is not valid');
+
+            var rowData = functions({ fn: 'sheet-createRow', sheet: this.sheet, row: row - 1 }, true);
             return new Row(this.sheet, rowData, row);
         };
 
@@ -132,6 +146,11 @@ var aps;
         * A shortcut function for getting the value of a cell.
         */
         Sheet.prototype.getCellValue = function (row, column) {
+            if (row === 0)
+                throw new Error('row 0 is not valid');
+            if (column === 0)
+                throw new Error('column 0 is not valid');
+
             var rowObj = this.getRow(row);
             if (!rowObj.isExists())
                 return null;
@@ -149,6 +168,11 @@ var aps;
         * It will create a row and column as needed.
         */
         Sheet.prototype.setCellValue = function (row, column, value) {
+            if (row === 0)
+                throw new Error('row 0 is not valid');
+            if (column === 0)
+                throw new Error('column 0 is not valid');
+
             var rowObj = this.getRow(row);
             if (!rowObj.isExists())
                 rowObj.create();
@@ -170,13 +194,19 @@ var aps;
             this.index = index;
         }
         Row.prototype.getCell = function (cell) {
-            var cellData = functions({ fn: 'row-getCell', row: this.row, cell: cell }, true);
+            if (cell === 0)
+                throw new Error('cell 0 is not valid');
+
+            var cellData = functions({ fn: 'row-getCell', row: this.row, cell: cell - 1 }, true);
             if (cellData == null)
                 return null;
             return new Cell(this.row, cellData, cell);
         };
         Row.prototype.getCellExists = function (cell) {
-            return functions({ fn: 'row-getCellExists', row: this.row, cell: cell }, true);
+            if (cell === 0)
+                throw new Error('cell 0 is not valid');
+
+            return functions({ fn: 'row-getCellExists', row: this.row, cell: cell - 1 }, true);
         };
 
         /**
@@ -199,7 +229,10 @@ var aps;
         };
 
         Row.prototype.createCell = function (cell) {
-            var cellData = functions({ fn: 'row-createCell', row: this.row, cell: cell }, true);
+            if (cell === 0)
+                throw new Error('cell 0 is not valid');
+
+            var cellData = functions({ fn: 'row-createCell', row: this.row, cell: cell - 1 }, true);
             return new Cell(this.row, cellData, cell);
         };
         return Row;
@@ -223,7 +256,7 @@ var aps;
         Cell.prototype.create = function () {
             if (this.isExists())
                 return;
-            this.cell = functions({ fn: 'row-createCell', row: this.row, cell: this.index }, true);
+            this.cell = functions({ fn: 'row-createCell', row: this.row, cell: this.index - 1 }, true);
         };
 
         Cell.prototype.getValue = function () {

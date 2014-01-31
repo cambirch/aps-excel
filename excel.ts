@@ -46,7 +46,9 @@ module aps {
          *     Sheet.createRow(####)
          */
         public getRow(row: number): Row {
-            var rowData = functions({ fn: 'sheet-getRow', sheet: this.sheet, row: row }, true);
+            if (row === 0) throw new Error('row 0 is not valid');
+
+            var rowData = functions({ fn: 'sheet-getRow', sheet: this.sheet, row: row - 1 }, true);
             if (rowData == null) return null;
             return new Row(this.sheet, rowData, row);
         }
@@ -58,7 +60,9 @@ module aps {
          * it will let you know whether that row exists.
          */
         public getRowExists(row: number): boolean {
-            return <boolean>functions({ fn: 'sheet-getRowExists', sheet: this.sheet, row: row }, true);
+            if (row === 0) throw new Error('row 0 is not valid');
+
+            return <boolean>functions({ fn: 'sheet-getRowExists', sheet: this.sheet, row: row - 1 }, true);
         }
 
         /**
@@ -91,7 +95,10 @@ module aps {
          * repeat until all rows added.
          */
         public cloneRow(source: number, destination: number): Row {
-            var rowData = functions({ fn: 'sheet-cloneRow', sheet: this.sheet, sourceRow: source, destRow: destination }, true);
+            if (source === 0) throw new Error('row 0 is not valid');
+            if (destination === 0) throw new Error('row 0 is not valid');
+
+            var rowData = functions({ fn: 'sheet-cloneRow', sheet: this.sheet, sourceRow: source - 1, destRow: destination - 1 }, true);
             return new Row(this.sheet, rowData, destination);
         }
 
@@ -119,7 +126,9 @@ module aps {
          * createRow() lets you create a row that you can then edit cells on on this sheet.
          */
         public createRow(row: number): Row {
-            var rowData = functions({ fn: 'sheet-createRow', sheet: this.sheet, row: row }, true);
+            if (row === 0) throw new Error('row 0 is not valid');
+
+            var rowData = functions({ fn: 'sheet-createRow', sheet: this.sheet, row: row - 1 }, true);
             return new Row(this.sheet, rowData, row);
         }
 
@@ -127,6 +136,9 @@ module aps {
          * A shortcut function for getting the value of a cell.
          */
         public getCellValue(row: number, column: number): any {
+            if (row === 0) throw new Error('row 0 is not valid');
+            if (column === 0) throw new Error('column 0 is not valid');
+
             var rowObj = this.getRow(row);
             if (!rowObj.isExists()) return null;
             
@@ -141,6 +153,9 @@ module aps {
          * It will create a row and column as needed.
          */
         public setCellValue(row: number, column: number, value: any): void {
+            if (row === 0) throw new Error('row 0 is not valid');
+            if (column === 0) throw new Error('column 0 is not valid');
+
             var rowObj = this.getRow(row);
             if (!rowObj.isExists()) rowObj.create();
 
@@ -156,12 +171,16 @@ module aps {
         }
         
         public getCell(cell: number): Cell {
-            var cellData = functions({ fn: 'row-getCell', row: this.row, cell: cell }, true);
+            if (cell === 0) throw new Error('cell 0 is not valid');
+
+            var cellData = functions({ fn: 'row-getCell', row: this.row, cell: cell - 1 }, true);
             if (cellData == null) return null;
             return new Cell(this.row, cellData, cell);
         }
         public getCellExists(cell: number): boolean {
-            return functions({ fn: 'row-getCellExists', row: this.row, cell: cell }, true);
+            if (cell === 0) throw new Error('cell 0 is not valid');
+
+            return functions({ fn: 'row-getCellExists', row: this.row, cell: cell - 1 }, true);
         }
 
         /**
@@ -183,7 +202,9 @@ module aps {
         }
 
         public createCell(cell: number): Cell {
-            var cellData = functions({ fn: 'row-createCell', row: this.row, cell: cell }, true);
+            if (cell === 0) throw new Error('cell 0 is not valid');
+
+            var cellData = functions({ fn: 'row-createCell', row: this.row, cell: cell - 1 }, true);
             return new Cell(this.row, cellData, cell);
         }
     }
@@ -202,7 +223,7 @@ module aps {
          */
         public create(): void {
             if (this.isExists()) return;
-            this.cell = functions({ fn: 'row-createCell', row: this.row, cell: this.index }, true);
+            this.cell = functions({ fn: 'row-createCell', row: this.row, cell: this.index - 1 }, true);
         }
 
         public getValue(): any {
