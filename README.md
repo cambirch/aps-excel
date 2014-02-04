@@ -35,6 +35,13 @@ Installation has been simplified in this version.
     sheet.setCellValue(1, 1, 'Awesome!');
 
 
+## TypeScript ##
+
+If using TypeScript include the TypeScript definitions:
+
+    /// <reference path='aps-excel.d.ts'/>
+
+
 ## API ##
 API description provided in Typescript syntax for ease.
 
