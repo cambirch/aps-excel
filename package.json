@@ -25,7 +25,8 @@
   "files": [
     "sql.js",
     ".cs/Excel.cs",
-    ".lib"
+    ".lib",
+    "aps-excel.d.ts"
   ],
   "ignore": [
     ".lib/NPOI.pdb",

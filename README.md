@@ -1,32 +1,38 @@
-aps-excel
-=========
+aps-excel v0.2.0
+=======================================
 
 A node.js library that uses Edge.js and NPOI to manipulate Excel files
 
 
 ### Installing for use ###
 
-This module is **not** published to NPM nor will it be anytime soon.  This is important at this point!
+Please note that this module is **not** published to NPM nor will it be anytime soon.
 
-Using this module requires a few simple steps in order to install it as a natural NPM module.
+Installation has been simplified in this version.
 
-- Clone the repository into a local directory
-- Open an Administrator command prompt
-- Browse to the directory that the repository is cloned into
-- Use the cmd: 
-    > `npm link`
-- Browse to the directory that you are building a node project that requires the aps-excel module
-- Use the cmd: 
-	> `npm link aps-excel`
-- Use the module as you would any other 
-	> `require('aps-excel')`
+    npm install camMCC/aps-excel --save
+
+**NOTE:** The above command is CASE SENSITIVE.
+
 
 ## Using ##
 
     var excel = require('aps-excel').Excel;
-    var workbook = excel.load('filename');
+    
+    // Load a workbook
+    var workbook = excel.load('filename.xls');
+    
+    // Get the first sheet
     var sheet = workbook.getSheetAt(0);
-    console.log(sheet.getCellValue(0, 0);
+
+    // Get a sheet by name
+    var sheet = workbook.getSheet('Sheet1');
+    
+    // Print the value of the first cell (A1)
+    console.log(sheet.getCellValue(1, 1);
+
+    // Set the value of the first cell (A1)
+    sheet.setCellValue(1, 1, 'Awesome!');
 
 
 ## API ##
