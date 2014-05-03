@@ -19,7 +19,7 @@ var aps;
             this.workbook = workbook;
         }
         Workbook.prototype.save = function (path) {
-            functions({ fn: 'workbook-save', path: path }, true);
+            functions({ fn: 'workbook-save', path: path, workbook: this.workbook }, true);
         };
 
         Workbook.prototype.getSheetAt = function (index) {
@@ -296,3 +296,4 @@ var aps;
 })(aps || (aps = {}));
 
 exports.Excel = new aps.Excel();
+//# sourceMappingURL=excel.js.map

@@ -19,7 +19,7 @@ module aps {
         }
 
         public save(path: string): void {
-            functions({ fn: 'workbook-save', path: path }, true);
+            functions({ fn: 'workbook-save', path: path, workbook: this.workbook }, true);
         }
 
         public getSheetAt(index: number): Sheet {
