@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <SchemaVersion>2.0</SchemaVersion>
+        <ProjectGuid>{7d4412ab-1c28-44f8-a119-11443926df8e}</ProjectGuid>
+        <ProjectHome />
+        <ProjectView>ShowAllFiles</ProjectView>
+        <StartupFile>excel.js</StartupFile>
+        <WorkingDirectory>.</WorkingDirectory>
+        <OutputPath>.</OutputPath>
+        <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+        <TypeScriptSourceMap>true</TypeScriptSourceMap>
+        <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+        <EnableTypeScript>true</EnableTypeScript>
+        <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+        <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+    <ItemGroup>
+        <Content Include="package.json" />
+        <Content Include="README.md" />
+        <TypeScriptCompile Include="aps-excel.d.ts" />
+        <TypeScriptCompile Include="excel.ts" />
+        <TypeScriptCompile Include="node.d.ts" />
+        <Compile Include="excel.js" />
+        <Compile Include="excel.min.js" />
+        <Content Include=".lib\NPOI.XML" />
+        <Content Include=".cs\bin\Debug\NPOI.xml" />
+        <Content Include=".cs\obj\Debug\aps-excel-cs.csproj.FileListAbsolute.txt" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include=".cs" />
+        <Folder Include=".cs\bin" />
+        <Folder Include=".cs\bin\Debug" />
+        <Folder Include=".cs\bin\Release" />
+        <Folder Include=".cs\obj" />
+        <Folder Include=".cs\obj\Debug" />
+        <Folder Include=".cs\obj\Debug\TempPE" />
+        <Folder Include=".cs\Properties" />
+        <Folder Include=".git" />
+        <Folder Include=".git\hooks" />
+        <Folder Include=".git\info" />
+        <Folder Include=".git\logs" />
+        <Folder Include=".git\logs\refs" />
+        <Folder Include=".git\logs\refs\heads" />
+        <Folder Include=".git\logs\refs\remotes" />
+        <Folder Include=".git\logs\refs\remotes\origin" />
+        <Folder Include=".git\objects" />
+        <Folder Include=".git\objects\00" />
+        <Folder Include=".git\objects\09" />
+        <Folder Include=".git\objects\12" />
+        <Folder Include=".git\objects\1a" />
+        <Folder Include=".git\objects\1e" />
+        <Folder Include=".git\objects\25" />
+        <Folder Include=".git\objects\26" />
+        <Folder Include=".git\objects\2e" />
+        <Folder Include=".git\objects\2f" />
+        <Folder Include=".git\objects\30" />
+        <Folder Include=".git\objects\39" />
+        <Folder Include=".git\objects\3a" />
+        <Folder Include=".git\objects\3d" />
+        <Folder Include=".git\objects\43" />
+        <Folder Include=".git\objects\45" />
+        <Folder Include=".git\objects\46" />
+        <Folder Include=".git\objects\4b" />
+        <Folder Include=".git\objects\58" />
+        <Folder Include=".git\objects\61" />
+        <Folder Include=".git\objects\64" />
+        <Folder Include=".git\objects\6b" />
+        <Folder Include=".git\objects\6c" />
+        <Folder Include=".git\objects\71" />
+        <Folder Include=".git\objects\72" />
+        <Folder Include=".git\objects\73" />
+        <Folder Include=".git\objects\74" />
+        <Folder Include=".git\objects\7a" />
+        <Folder Include=".git\objects\7b" />
+        <Folder Include=".git\objects\7e" />
+        <Folder Include=".git\objects\81" />
+        <Folder Include=".git\objects\8b" />
+        <Folder Include=".git\objects\90" />
+        <Folder Include=".git\objects\99" />
+        <Folder Include=".git\objects\9c" />
+        <Folder Include=".git\objects\9f" />
+        <Folder Include=".git\objects\a1" />
+        <Folder Include=".git\objects\a3" />
+        <Folder Include=".git\objects\a8" />
+        <Folder Include=".git\objects\a9" />
+        <Folder Include=".git\objects\aa" />
+        <Folder Include=".git\objects\b1" />
+        <Folder Include=".git\objects\bb" />
+        <Folder Include=".git\objects\bd" />
+        <Folder Include=".git\objects\bf" />
+        <Folder Include=".git\objects\c2" />
+        <Folder Include=".git\objects\c3" />
+        <Folder Include=".git\objects\c4" />
+        <Folder Include=".git\objects\c5" />
+        <Folder Include=".git\objects\c6" />
+        <Folder Include=".git\objects\cc" />
+        <Folder Include=".git\objects\dc" />
+        <Folder Include=".git\objects\de" />
+        <Folder Include=".git\objects\e1" />
+        <Folder Include=".git\objects\e4" />
+        <Folder Include=".git\objects\e5" />
+        <Folder Include=".git\objects\ee" />
+        <Folder Include=".git\objects\f0" />
+        <Folder Include=".git\objects\f4" />
+        <Folder Include=".git\objects\f5" />
+        <Folder Include=".git\objects\fd" />
+        <Folder Include=".git\objects\fe" />
+        <Folder Include=".git\objects\info" />
+        <Folder Include=".git\objects\pack" />
+        <Folder Include=".git\refs" />
+        <Folder Include=".git\refs\heads" />
+        <Folder Include=".git\refs\remotes" />
+        <Folder Include=".git\refs\remotes\origin" />
+        <Folder Include=".git\refs\tags" />
+        <Folder Include=".lib" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+    <ProjectExtensions>
+        <VisualStudio>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+            <WebProjectProperties>
+              <UseIIS>False</UseIIS>
+              <AutoAssignPort>True</AutoAssignPort>
+              <DevelopmentServerPort>0</DevelopmentServerPort>
+              <DevelopmentServerVPath>/</DevelopmentServerVPath>
+              <IISUrl>http://localhost:48022/</IISUrl>
+              <NTLMAuthentication>False</NTLMAuthentication>
+              <UseCustomServer>True</UseCustomServer>
+              <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+              <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+            </WebProjectProperties>
+          </FlavorProperties>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+            <WebProjectProperties>
+              <StartPageUrl>
+              </StartPageUrl>
+              <StartAction>CurrentPage</StartAction>
+              <AspNetDebugging>True</AspNetDebugging>
+              <SilverlightDebugging>False</SilverlightDebugging>
+              <NativeDebugging>False</NativeDebugging>
+              <SQLDebugging>False</SQLDebugging>
+              <ExternalProgram>
+              </ExternalProgram>
+              <StartExternalURL>
+              </StartExternalURL>
+              <StartCmdLineArguments>
+              </StartCmdLineArguments>
+              <StartWorkingDirectory>
+              </StartWorkingDirectory>
+              <EnableENC>False</EnableENC>
+              <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+            </WebProjectProperties>
+          </FlavorProperties>
+        </VisualStudio>
+    </ProjectExtensions>
+</Project>
