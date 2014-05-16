@@ -139,11 +139,11 @@ module aps {
             if (row === 0) throw new Error('row 0 is not valid');
             if (column === 0) throw new Error('column 0 is not valid');
 
+            if (!this.getRowExists(row)) return null;
             var rowObj = this.getRow(row);
-            if (!rowObj.isExists()) return null;
-            
+
+            if (!rowObj.getCellExists(column)) return null;
             var cellObj = rowObj.getCell(column);
-            if (!cellObj.isExists()) return null;
 
             return cellObj.getValue();
         }
@@ -156,11 +156,8 @@ module aps {
             if (row === 0) throw new Error('row 0 is not valid');
             if (column === 0) throw new Error('column 0 is not valid');
 
-            var rowObj = this.getRow(row);
-            if (!rowObj.isExists()) rowObj.create();
-
-            var cellObj = rowObj.getCell(column);
-            if (!cellObj.isExists()) cellObj.create();
+            var rowObj = this.getRow(row) || this.createRow(row);
+            var cellObj = rowObj.getCell(column) || rowObj.createCell(column);
 
             cellObj.setValue(value);
         }
