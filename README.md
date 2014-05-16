@@ -1,4 +1,4 @@
-aps-excel v0.2.0
+aps-excel v0.4.0
 =======================================
 
 A node.js library that uses Edge.js and NPOI to manipulate Excel files

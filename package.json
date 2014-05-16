@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "aps-excel",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "description": "Uses Edge.js & NPOI to offer powerful Excel (XLS) manipulation.",
   "homepage": "https://github.com/camMCC/aps-excel",
   "repository": {
