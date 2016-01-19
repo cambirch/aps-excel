@@ -18,7 +18,7 @@
   "author": "Cam Birch",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "edge": "~4.0.0"
+    "edge": "~5.0.0"
   },
   "os": "win32",
   "main": "excel.js",
